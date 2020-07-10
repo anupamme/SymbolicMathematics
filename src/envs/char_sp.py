@@ -773,7 +773,7 @@ class CharSPEnvironment(object):
         expr = expr.split()
         return expr
 
-    @timeout(3)
+    @timeout(3000)
     def gen_prim_fwd(self, rng):
         """
         Generate pairs of (function, primitive).
@@ -858,7 +858,7 @@ class CharSPEnvironment(object):
 
         return x, y
 
-    @timeout(5)
+    @timeout(500)
     def gen_prim_bwd(self, rng, predict_primitive):
         """
         Generate pairs of (function, derivative) or (function, primitive).
