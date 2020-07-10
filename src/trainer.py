@@ -446,7 +446,6 @@ class Trainer(object):
         encoder, decoder = self.modules['encoder'], self.modules['decoder']
         encoder.train()
         decoder.train()
-
         # batch
         (x1, len1), (x2, len2), _ = self.get_batch(task)
 

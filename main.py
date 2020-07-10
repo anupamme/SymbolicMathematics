@@ -15,7 +15,7 @@ import src
 from src.slurm import init_signal_handler, init_distributed_mode
 from src.utils import bool_flag, initialize_exp
 from src.model import check_model_params, build_modules
-from src.envs import ENVS, build_env
+from src.envs import ENVS, build_env, CharSPEnvironment
 from src.trainer import Trainer
 from src.evaluator import Evaluator
 
@@ -230,3 +230,12 @@ if __name__ == '__main__':
 
     # run experiment
     main(params)
+
+def test_prim_fwd(rand_val=0):
+    parser = get_parser()
+    params = parser.parse_args()
+    char_sp_env = CharSPEnvironment(params)
+    return char_sp_env.gen_prim_fwd(rng=np.random.RandomState(rand_val))
+    #return char_sp_env.gen_prim_bwd(rng=np.random.RandomState(rand_val), predict_primitive=True)
+    #return char_sp_env.gen_prim_ibp(rng=np.random.RandomState(rand_val))
+    #return char_sp_env.gen_ode1(rng=np.random.RandomState(rand_val))
