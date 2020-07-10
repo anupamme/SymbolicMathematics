@@ -140,7 +140,7 @@ class CharSPEnvironment(object):
 
     SYMPY_OPERATORS = {
         # Relational functions
-        sp.StrictLessThan: 'lessthan'
+        sp.StrictLessThan: 'lessthan',
         # Elementary functions
         sp.Add: 'add',
         sp.Mul: 'mul',
@@ -524,6 +524,8 @@ class CharSPEnvironment(object):
         for nb_ops in range(nb_total_ops, 0, -1):
 
             # next operator, arity and position
+            if nb_empty >= nb_ops:
+                continue
             skipped, arity = self.sample_next_pos_ubi(nb_empty, nb_ops, rng)
             if arity == 1:
                 op = rng.choice(self.una_ops, p=self.una_ops_probs)

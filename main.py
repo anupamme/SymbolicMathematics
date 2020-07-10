@@ -239,3 +239,13 @@ def test_prim_fwd(rand_val=0):
     #return char_sp_env.gen_prim_bwd(rng=np.random.RandomState(rand_val), predict_primitive=True)
     #return char_sp_env.gen_prim_ibp(rng=np.random.RandomState(rand_val))
     #return char_sp_env.gen_ode1(rng=np.random.RandomState(rand_val))
+
+    
+def test_export_data(rand_val=0):
+    parser = get_parser()
+    params = parser.parse_args()
+    char_sp_env = CharSPEnvironment(params)
+    return char_sp_env.gen_prim_fwd(rng=np.random.RandomState(rand_val))
+    #return char_sp_env.gen_prim_bwd(rng=np.random.RandomState(rand_val), predict_primitive=True)
+    #return char_sp_env.gen_prim_ibp(rng=np.random.RandomState(rand_val))
+    #return char_sp_env.gen_ode1(rng=np.random.RandomState(rand_val))
