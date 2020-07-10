@@ -139,6 +139,8 @@ class CharSPEnvironment(object):
     # https://docs.sympy.org/latest/modules/functions/elementary.html#real-root
 
     SYMPY_OPERATORS = {
+        # Relational functions
+        sp.sp.StrictLessThan: 'lessthan'
         # Elementary functions
         sp.Add: 'add',
         sp.Mul: 'mul',
@@ -180,6 +182,8 @@ class CharSPEnvironment(object):
     }
 
     OPERATORS = {
+        # Relational functions
+        'lessthan': 2,
         # Elementary functions
         'add': 2,
         'sub': 2,
