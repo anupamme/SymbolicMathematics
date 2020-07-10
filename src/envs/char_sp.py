@@ -140,7 +140,7 @@ class CharSPEnvironment(object):
 
     SYMPY_OPERATORS = {
         # Relational functions
-        sp.sp.StrictLessThan: 'lessthan'
+        sp.StrictLessThan: 'lessthan'
         # Elementary functions
         sp.Add: 'add',
         sp.Mul: 'mul',
